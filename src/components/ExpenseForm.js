@@ -6,14 +6,17 @@ import 'react-dates/initialize';
 
 
 export default class ExpenseForm extends React.Component {
-    state = {                   //default state
-        description: '',
-        note: '',
-        amount: '',
-        createdAt: moment(),
-        focused: false,
-        error: ''
-    };
+    constructor(props) {
+        super(props);
+        this.state = {                   //default state
+            description: props.expense ? props.expense.description : '',
+            note: props.expense ? props.expense.note : '',
+            amount: props.expense ? (props.expense.amount / 100).toString() : '',
+            createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+            focused: false,
+            error: ''
+        };
+    }
     onDescriptionChange = (e) => {
         const description = e.target.value;
         this.setState(() => ({ description }));
