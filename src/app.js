@@ -13,17 +13,6 @@ import 'react-dates/initialize';
 
 const store = configureStore();
 
-//DISPATCHES
-store.dispatch(addExpense({description: 'water bill', amount: 8500, createdAt: -3498234}));
-store.dispatch(addExpense({description: 'gas bill', amount: 6000,createdAt: 12383342}));
-store.dispatch(addExpense({description: 'rent', amount: 75000}));
-
-
-//LOG RESULTS
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
-
 //PROVIDE STORE TO COMPONENTS
 const jsx = (
     <Provider store={store}>
