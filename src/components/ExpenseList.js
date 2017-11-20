@@ -17,10 +17,6 @@ export const ExpenseList = (props) => (
 
 
 //THE FOLLOWING PULLS IN THE STATE FROM THE STORE AND CONNECTS IT TO THIS COMPONENT
-const mapStateToProps = (state) => {
-    return {
-        expenses: selectExpenses(state.expenses,state.filters)
-    };
-};
+const mapStateToProps = (state) => ({ expenses: selectExpenses(state.expenses, state.filters) });
 
 export default connect(mapStateToProps)(ExpenseList);
